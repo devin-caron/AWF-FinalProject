@@ -3,6 +3,7 @@ import SideBar from './components/SideBar';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Login from './Pages/Login';
+import Register from './Pages/Register';
 import Education from './Pages/Education';
 import Work from './Pages/Work';
 import Activities from './Pages/Activities';
@@ -17,6 +18,7 @@ function App() {
       <SideBar />
       <Switch>
         <Route path='/' exact component={Login}/>
+        <Route path='/register' exact component={Register}/>
         <Route path='/education' exact component={Education}/>
         <Route path='/work' component={Work}/>
         <Route path='/activities' component={Activities}/>
