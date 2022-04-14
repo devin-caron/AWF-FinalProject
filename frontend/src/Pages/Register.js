@@ -10,7 +10,7 @@ const USERLAST_REGEX = /^[A-z][A-z0-9-_]{4,23}$/;
 const EMAIL_REGEX = /^[A-z0-9].{1,}[@][A-z0-9].{1,}$/;
 const PWD_REGEX = /^[A-z0-9].{6,24}$/;
 
-const REGISTER_URL = '/register';
+const REGISTER_URL = '/api/v1/users/register';
 
 const Register = () => {
     const userRef = useRef();
@@ -77,11 +77,12 @@ const Register = () => {
         }
         try {
             const response = await axios.post(REGISTER_URL,
-                JSON.stringify({ name: user, last_name: userLast, email: email, password: pwd }),
-                // {
-                //    headers: { 'Content-Type': 'application/json' },
-                //    withCredentials: true
-                // }
+                JSON.stringify({ name: user, last_name: userLast, email: email, password: pwd })
+                ,
+                {
+                   headers: { 'Content-Type': 'application/json' },
+                   //withCredentials: true
+                }
             );
             console.log(response?.data);
             console.log(response?.accessToken);
@@ -110,7 +111,7 @@ const Register = () => {
                 <section>
                     <h1>Success!</h1>
                     <p>
-                        <a href="#">Sign In</a>
+                        <a href="/">Sign In</a>
                     </p>
                 </section>
             ) : (
@@ -241,7 +242,7 @@ const Register = () => {
                         Already registered?<br />
                         <span className="line">
                             {/*put router link here*/}
-                            <a href="/login">Sign In</a>
+                            <a href="/">Sign In</a>
                         </span>
                     </p>
                 </section>
