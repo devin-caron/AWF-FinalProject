@@ -1,11 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import "../styles/App.scss"
 import StatusLine from '../components/StatusLine'
 import axios from 'axios';
+import AuthContext from "../context/AuthProvider";
 
 function Home() {
   const [tasks, setTasks] = useState([]);
+
+  // auth context
+  const {auth} = useContext(AuthContext);
+  const token = auth.token;
+  console.log(auth);
+  
+
   const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRlNjQ5YWFmMjlkNGM1ZGVkNWU3MzgiLCJpYXQiOjE2NDk4NzU5MTl9.GdJ5G2RBR3tDo6sDF0m5IwoGL5TKgkVdH87F7DExs4A';
+
 
   useEffect(() => {
     // loadTasksFromLocalStorage();
