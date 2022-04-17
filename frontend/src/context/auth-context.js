@@ -3,8 +3,6 @@ import React, {useState} from 'react'
 const AuthContext = React.createContext({
     token:'',
     isLoggedIn: false,
-    favs: (favIDs) => {},
-    favIDs:[],
     login: (token) => {},
     logout: () => {}
 })
@@ -12,7 +10,6 @@ const AuthContext = React.createContext({
 export const AuthContextProvider = (props) =>{
     const initialToken = localStorage.getItem('token');
     const [token,setToken] = useState(initialToken);
-    const [favIDs,setFavIDs] = useState([]);
 
     const userIsLoggedIn = !!token;
 
@@ -26,15 +23,10 @@ export const AuthContextProvider = (props) =>{
         localStorage.removeItem('token');
     }
 
-    const favIDsHandler = (favIDs) =>{
-        setFavIDs(favIDs);
-    }
 
     const contextValue = {
         token: token,
         isLoggedIn: userIsLoggedIn,
-        favs: favIDsHandler,
-        favIDs: favIDs,
         login: loginHandler,
         logout: logoutHandler,
     };
