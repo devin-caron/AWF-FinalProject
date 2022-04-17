@@ -118,7 +118,7 @@ function Activities() {
 
   return (
     <div className="Activities">
-      <h1>Task Management</h1>
+      <h1>Activities</h1>
       <main>
         <section>
           <StatusLine

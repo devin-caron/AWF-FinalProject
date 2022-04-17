@@ -118,7 +118,7 @@ function Personal() {
 
   return (
     <div className="Personal">
-      <h1>Task Management</h1>
+      <h1>Personal</h1>
       <main>
         <section>
           <StatusLine

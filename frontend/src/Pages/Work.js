@@ -118,7 +118,7 @@ function Work() {
 
   return (
     <div className="Work">
-      <h1>Task Management</h1>
+      <h1>Work</h1>
       <main>
         <section>
           <StatusLine

@@ -118,7 +118,7 @@ function Other() {
 
   return (
     <div className="Other">
-      <h1>Task Management</h1>
+      <h1>Other</h1>
       <main>
         <section>
           <StatusLine

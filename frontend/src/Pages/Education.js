@@ -149,7 +149,7 @@ function Home() {
 
   return (
     <div className="App">
-      <h1>Task Management</h1>
+      <h1>Education</h1>
       <main>
         <section>
           <StatusLine
