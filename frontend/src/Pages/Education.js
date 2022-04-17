@@ -20,7 +20,7 @@ function Home() {
 
   const localToken = localStorage.getItem("token");
 
-  const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRlNjQ5YWFmMjlkNGM1ZGVkNWU3MzgiLCJpYXQiOjE2NDk4NzU5MTl9.GdJ5G2RBR3tDo6sDF0m5IwoGL5TKgkVdH87F7DExs4A';
+  const authToken = localToken//'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRlNjQ5YWFmMjlkNGM1ZGVkNWU3MzgiLCJpYXQiOjE2NDk4NzU5MTl9.GdJ5G2RBR3tDo6sDF0m5IwoGL5TKgkVdH87F7DExs4A';
 
 
   useEffect(() => {

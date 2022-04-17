@@ -5,8 +5,8 @@ import axios from 'axios';
 
 function Work() {
   const [tasks, setTasks] = useState([]);
-  const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRlNjQ5YWFmMjlkNGM1ZGVkNWU3MzgiLCJpYXQiOjE2NDk4NzU5MTl9.GdJ5G2RBR3tDo6sDF0m5IwoGL5TKgkVdH87F7DExs4A';
-
+  const authToken = localStorage.getItem("token");
+  
   useEffect(() => {
     // loadTasksFromLocalStorage();
     loadTasksFromMongoDB()

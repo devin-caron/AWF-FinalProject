@@ -43,6 +43,7 @@ const Login = () => {
                 }
             );
             const accessToken = response?.data?.token;
+            localStorage.setItem('token', accessToken);
             console.log(accessToken);
             authCtx.login(response.data.token);
             
