@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import "../styles/App.scss"
+import "../styles/main.css"
 import StatusLine from '../components/StatusLine'
 import axios from 'axios';
 import AuthContext from "../context/auth-context";

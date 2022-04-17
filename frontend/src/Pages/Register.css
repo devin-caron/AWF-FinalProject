@@ -12,11 +12,6 @@ html {
     color: #fff;
 }
 
-body {
-    min-height: 100vh;
-    background-color: dodgerblue;
-}
-
 .App {
   display: flex;
   flex-direction: column;
