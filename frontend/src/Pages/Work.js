@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import "../styles/App.scss"
 import StatusLine from '../components/StatusLine'
+import StatusLineNoAdd from '../components/StatusLineNoAdd'
 import axios from 'axios';
 
 function Work() {
@@ -129,7 +130,7 @@ function Work() {
             moveTask={moveTask}
             status="To Do"
           />
-          <StatusLine
+          <StatusLineNoAdd
             tasks={tasks}
             addEmptyTask={addEmptyTask}
             addTask={addTask}
@@ -137,7 +138,7 @@ function Work() {
             moveTask={moveTask}
             status="In Progress"
           />
-          <StatusLine
+          <StatusLineNoAdd
             tasks={tasks}
             addEmptyTask={addEmptyTask}
             addTask={addTask}

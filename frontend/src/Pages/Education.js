@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import "../styles/App.scss"
 import StatusLine from '../components/StatusLine'
+import StatusLineNoAdd from '../components/StatusLineNoAdd'
 import axios from 'axios';
 import AuthContext from "../context/auth-context";
 
@@ -160,7 +161,7 @@ function Home() {
             moveTask={moveTask}
             status="To Do"
           />
-          <StatusLine
+          <StatusLineNoAdd
             tasks={tasks}
             addEmptyTask={addEmptyTask}
             addTask={addTask}
@@ -168,7 +169,7 @@ function Home() {
             moveTask={moveTask}
             status="In Progress"
           />
-          <StatusLine
+          <StatusLineNoAdd
             tasks={tasks}
             addEmptyTask={addEmptyTask}
             addTask={addTask}
