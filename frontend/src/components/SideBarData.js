@@ -35,6 +35,12 @@ export const SideBarData = [
         path: '/other',
         icon: <FaIcons.FaRandom/>,
         cName: 'nav-text'
+    },
+    {
+        title: 'Logout',
+        path: '/',
+        icon: <FaIcons.FaSignOutAlt/>,
+        cName: 'nav-text'
     }
 
 ]
