@@ -2,9 +2,11 @@ import React, {useState, useEffect, useContext} from 'react'
 import "../styles/App.scss"
 import StatusLine from '../components/StatusLine'
 import StatusLineNoAdd from '../components/StatusLineNoAdd'
-import axios from 'axios';
+import axios from '../api/axios';
 import AuthContext from "../context/auth-context";
 
+const UPDATE_API = 'api/v1/tasks/update';
+const API = '/api/v1/tasks/education';
 
 //import AuthContext from "../context/AuthProvider";
 
@@ -107,7 +109,7 @@ function Home() {
   // }
 
   async function saveTaskToMongoDB(tasks){
-    axios.post('http://localhost:5000/api/v1/tasks/update', tasks, 
+    axios.post(UPDATE_API, tasks, 
     {
       headers: {
           'Content-Type': 'application/json',
@@ -134,7 +136,7 @@ function Home() {
   // }
 
   async function loadTasksFromMongoDB(){
-    const loadedTasks = await axios.get('http://localhost:5000/api/v1/tasks/education', {
+    const loadedTasks = await axios.get(API, {
       headers: {
           'Content-Type': 'application/json',
           'auth-token': authToken
