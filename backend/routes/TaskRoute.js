@@ -39,13 +39,11 @@ router.post('/update', authenticate, async (req, res) => {
     let success = false;
     switch (req.headers.category) {
         case "Education":
-            console.log('UPDATE THE Education TASKS!!');
             success = await handleEducationTasks(req);
             if(success) return res.status(200).send('Education Tasks Updated Succesfully');
             else return res.status(400).send('Erro while trying to update Education Tasks');
             break;
         case "Work":
-            console.log('UPDATE THE Work TASKS!!');
             success = handleWorkTasks(req);
             if(success) return res.status(200).send('Work Tasks Updated Succesfully');
             else return res.status(400).send('Erro while trying to update Work Tasks');
@@ -131,18 +129,15 @@ async function handleEducationTasks(req){
     if(userExits){
         // Update the tasks array
         await EducationTasksModel.findOneAndUpdate({userID: 'user'+req.user._id}, {$set: {tasks: req.body}})
-        console.log('User exits');
     }else{
         const newEducationTasksModel = new EducationTasksModel({
             userID: 'user'+req.user._id,
             tasks: req.body
         });
         newEducationTasksModel.save();
-        console.log('User does not exist!');
         return false;
     }
     
-    console.log('RAdi?????');
     return true;
 }
 
@@ -161,11 +156,9 @@ async function handleWorkTasks(req){
             tasks: req.body
         });
         newWorkTasksModel.save();
-        console.log('User does not exist!');
         return false;
     }
     
-    console.log('RAdi?????');
     return true;
 }
 

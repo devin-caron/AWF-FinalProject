@@ -5,10 +5,10 @@ import axios from '../api/axios';
 
 import './Register.css'
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{4,23}$/;
-const USERLAST_REGEX = /^[A-z][A-z0-9-_]{4,23}$/;
+const USER_REGEX = /^[A-z]{3,12}$/;
+const USERLAST_REGEX = /^[A-z]{3,12}$/;
 const EMAIL_REGEX = /^[A-z0-9].{1,}[@][A-z0-9].{1,}$/;
-const PWD_REGEX = /^[A-z0-9].{6,24}$/;
+const PWD_REGEX = /^[a-zA-Z0-9!@#$&()\-`.+,/"].{6,24}$/;
 
 const REGISTER_URL = '/api/v1/users/register';
 
@@ -96,9 +96,9 @@ const Register = () => {
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 409) {
-                setErrMsg('Username Taken');
-            } else {
+            } else if (err.response?.status === 401) {
+                setErrMsg('Email already exists');
+            }else {
                 setErrMsg('Registration Failed')
             }
             errRef.current.focus();
@@ -139,9 +139,8 @@ const Register = () => {
                         />
                         <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            4 to 24 characters.<br />
-                            Must begin with a letter.<br />
-                            Letters, numbers, underscores, hyphens allowed.
+                            4 to 12 characters.<br />
+                            Must only use letters.
                         </p>
 
                         <label htmlFor="username">
@@ -163,9 +162,8 @@ const Register = () => {
                         />
                         <p id="uidlastnote" className={userLastFocus && userLast && !validNameLast ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            4 to 24 characters.<br />
-                            Must begin with a letter.<br />
-                            Letters, numbers, underscores, hyphens allowed.
+                            4 to 12 characters.<br />
+                            Must only use letters.
                         </p>
 
                         <label htmlFor="email">
@@ -209,9 +207,8 @@ const Register = () => {
                         />
                         <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            8 to 24 characters.<br />
-                            Must include uppercase and lowercase letters, a number and a special character.<br />
-                            Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+                            7 to 24 characters.<br />
+                            Allows letters, numbers and special characters.
                         </p>
 
 

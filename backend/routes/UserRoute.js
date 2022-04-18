@@ -24,11 +24,11 @@ router.post('/register', async (req, res) => {
 
     //Check if the user is already in the database
     const emailExists = await User.findOne({email: req.body.email});
-    if(emailExists) return res.status(400).send({success: false, message: 'Email already exists.'});
+    if(emailExists) return res.status(401).send({success: false, message: 'Email already exists.'});
 
     // Chekc if the userName already exits
-    const usernameExists = await User.findOne({name: req.body.name});
-    if(usernameExists) return res.status(400).send({success: false, message: 'Username already exists.'});
+    // const usernameExists = await User.findOne({name: req.body.name});
+    // if(usernameExists) return res.status(402).send({success: false, message: 'Username already exists.'});
 
 
     //Hash the password
