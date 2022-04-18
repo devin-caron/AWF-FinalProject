@@ -28,6 +28,6 @@ mongoose.connect(process.env.MONGODB_URI, () => console.log('Connected to the da
 
 
 // Start the server
-const port = process.env.POROT || 3500;
+const port = process.env.PORT || 3500;
 app.listen(5000, () => console.log('listening on port ' + port));
 
