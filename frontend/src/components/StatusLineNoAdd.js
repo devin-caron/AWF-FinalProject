@@ -19,7 +19,8 @@ export default function StatusLineNoAdd(props){
     if(tasksForStatus){
         taskList = tasksForStatus.map( (task) => {
             return(
-                <Task 
+                <Task
+                    addTask={(task) => addTask(task)} 
                     deleteTask={(id) => deleteTask(id)}
                     moveTask={(id, status) => moveTask(id, status)}
                     key={task.id}

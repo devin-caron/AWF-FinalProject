@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 //import AuthContext from "../context/AuthProvider";
 import AuthContext from "../context/auth-context"
 
@@ -99,8 +99,7 @@ const Login = () => {
                 <p>
                     Need an Account?<br />
                     <span className="line">
-                        {/*put router link here*/}
-                        <a href="/register">Sign Up</a>
+                        <a><Link to="/register">Sign Up</Link></a>
                     </span>
                 </p>
             </section>

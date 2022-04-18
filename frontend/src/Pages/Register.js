@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
+import {Link} from "react-router-dom";
 
 import './Register.css'
 
@@ -238,8 +239,7 @@ const Register = () => {
                     <p>
                         Already registered?<br />
                         <span className="line">
-                            {/*put router link here*/}
-                            <a href="/">Sign In</a>
+                            <a><Link to="/">Sign In</Link></a>
                         </span>
                     </p>
                 </section>
