@@ -94,30 +94,12 @@ router.post('/login', async (req, res) => {
  * Get all the user info
  */
 router.get('/info', verify_token, async (req, res) => {
-
-    const favorites = await FavoritesModel.findOne({userID: "sm"+req.user._id});
-    const customs = await CustomsModel.findOne({userID: "smc"+req.user._id});
-
-    let countFavorites = 0;
-    let countCustoms = 0;
-
-
-    if(favorites !== null) {
-        countFavorites = favorites.favRecipes.length;
-    }
-    
-    if(customs !== null){
-        countCustoms = customs.customRecipes.length;
-    }
-        
-
     const user = await User.findOne({_id: req.user._id});
     res.status(200).send({success: true, message: "User info data", data: {
         name: user.name,
+        last_name: user.last_name,
         email: user.email,
         date: user.date,
-        favoriteCount: countFavorites,
-        customCount: countCustoms
     }});
 });
 
