@@ -74,7 +74,7 @@ const Login = () => {
             <div styleName="sectionStyle">
                 <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                 <h1>Sign In</h1>
-                <form onSubmit={handleSubmit}>
+                <form className="login" onSubmit={handleSubmit}>
                     <label htmlFor="username">Email:</label>
                     <input
                         type="text"

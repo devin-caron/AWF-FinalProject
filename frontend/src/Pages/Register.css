@@ -27,7 +27,13 @@ section {
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     /* flex-direction:column; */
+}
+
+.login {
+    align-items: center;
+    padding-left: 40%;
 }
 
 form {
