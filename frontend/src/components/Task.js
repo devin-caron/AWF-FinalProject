@@ -81,6 +81,7 @@ export default function Task(props) {
                 disabled={collapsed}
                 defaultValue={task.title}
             />
+            
             <textarea
                 rows="2"
                 className="description input"
@@ -88,6 +89,7 @@ export default function Task(props) {
                 placeholder="Enter Task Description"
                 defaultValue={task.description}
             />
+            
             <div className="urgencyLabels">
                 <label className={`low ${urgencyLevel === 'low' ? "selected" : ""}`}>
                     <input
@@ -125,6 +127,5 @@ export default function Task(props) {
             </div>
         </form>
         <button onClick={handleMoveRight} className="button moveRight">&#187;</button>
-
     </div>
 }

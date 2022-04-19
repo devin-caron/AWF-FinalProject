@@ -27,7 +27,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    flex-direction:column;
+    /* flex-direction:column; */
 }
 
 form {
