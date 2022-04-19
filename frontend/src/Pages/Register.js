@@ -109,14 +109,17 @@ const Register = () => {
     return (
         <>
             {success ? (
-                <section>
-                    <h1>Success!</h1>
-                    <p>
-                        <a><Link to="/">Sign In</Link></a>
-                    </p>
-                </section>
-            ) : (
-                <section>
+                <div className="sectionStyle">
+                    
+                        <h1>Success!</h1>
+                        <p>
+                            <a><Link to="/">Sign In</Link></a>
+                        </p>
+                    
+                </div>
+                ) : (
+                <div className="sectionStyle">
+                
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Register</h1>
                     <form onSubmit={handleSubmit}>
@@ -242,7 +245,8 @@ const Register = () => {
                             <a><Link to="/">Sign In</Link></a>
                         </span>
                     </p>
-                </section>
+                
+                </div>
             )}
         </>
     )

@@ -2,11 +2,13 @@
 @import "properties.scss";
 
 
+
 body {
   font-family: "Kanit", sans-serif;
   background-color: $blue;
   color: $white;
-  display: flex;
+  // display: flex;
+  display: flexbox;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -18,11 +20,14 @@ h1 {
 }
 
 main {
+  // background-color: aqua;
   display: flex;
   flex-direction: column;
   border: 1px solid $green;
   align-items: center;
-  width: fit-content;
+  margin: 4rem;
+  // width: fit-content;
+
 }
 
 section {
@@ -30,6 +35,7 @@ section {
   width: 90rem;
   margin-bottom: 2rem;
 }
+
 
 .button {
   border: 1px solid $gold;
@@ -86,18 +92,9 @@ section {
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 75rem) {
   section {
-    width: 90%;
-    align-items: center;
-    flex-direction: column;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  section {
-    width: 90%;
-    align-items: center;
+    width: 100%;
     flex-direction: column;
   }
 }

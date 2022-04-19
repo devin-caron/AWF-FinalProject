@@ -71,7 +71,7 @@ const Login = () => {
 
     return (
         <>
-            <section>
+            <div styleName="sectionStyle">
                 <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit}>
@@ -102,7 +102,7 @@ const Login = () => {
                         <a><Link to="/register">Sign Up</Link></a>
                     </span>
                 </p>
-            </section>
+            </div>
         </>
     )
 }
