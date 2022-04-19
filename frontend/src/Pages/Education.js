@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import "../styles/App.scss"
 import StatusLine from '../components/StatusLine'
 import StatusLineNoAdd from '../components/StatusLineNoAdd'
@@ -8,23 +8,9 @@ import AuthContext from "../context/auth-context";
 const UPDATE_API = 'api/v1/tasks/update';
 const API = '/api/v1/tasks/education';
 
-//import AuthContext from "../context/AuthProvider";
-
 function Home() {
   const [tasks, setTasks] = useState([]);
-  
-
-  // auth context
-  //const {auth} = useContext(AuthContext);
-  // const authCtx = useContext(AuthContext);
-  // const token = authCtx.token;
-  // console.log(token);
-  
-
-  const localToken = localStorage.getItem("token");
-
-  const authToken = localToken//'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjRlNjQ5YWFmMjlkNGM1ZGVkNWU3MzgiLCJpYXQiOjE2NDk4NzU5MTl9.GdJ5G2RBR3tDo6sDF0m5IwoGL5TKgkVdH87F7DExs4A';
-
+  const authToken = localStorage.getItem("token");
 
   useEffect(() => {
     // loadTasksFromLocalStorage();
@@ -68,7 +54,6 @@ function Home() {
 
     setTasks(newTaskList);
 
-    // saveTasksToLocalStorage(newTaskList);
     console.log('Should see this when adding new task!');
     await saveTaskToMongoDB(newTaskList);
 
@@ -81,7 +66,6 @@ function Home() {
 
     setTasks(filteredTasks);
 
-    // saveTasksToLocalStorage(filteredTasks);
     await saveTaskToMongoDB(filteredTasks);
   }
 
@@ -100,13 +84,8 @@ function Home() {
 
     setTasks(newTaskList);
 
-    // saveTasksToLocalStorage(newTaskList);
     await saveTaskToMongoDB(newTaskList);
   }
-
-  // function saveTasksToLocalStorage(tasks) {
-  //   localStorage.setItem("tasks", JSON.stringify(tasks));
-  // }
 
   async function saveTaskToMongoDB(tasks){
     axios.post(UPDATE_API, tasks, 
@@ -125,15 +104,6 @@ function Home() {
     });
   }
 
-  // function loadTasksFromLocalStorage() {
-  //   let loadedTasks = localStorage.getItem("tasks");
-
-  //   let tasks = JSON.parse(loadedTasks);
-
-  //   if (tasks) {
-  //     setTasks(tasks);
-  //   } 
-  // }
 
   async function loadTasksFromMongoDB(){
     const loadedTasks = await axios.get(API, {
@@ -144,6 +114,7 @@ function Home() {
     });
     if(!loadedTasks){
       console.log('Error while loading the tasks!');
+      return;
     }
 
     console.log('Loaded tasks: ', loadedTasks.data);
@@ -151,7 +122,7 @@ function Home() {
   }
 
   return (
-    <div className="App">
+    <div className="Education">
       <h1>Education</h1>
       <main>
         <section>

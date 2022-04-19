@@ -11,7 +11,7 @@ const API = '/api/v1/tasks/work';
 function Work() {
   const [tasks, setTasks] = useState([]);
   const authToken = localStorage.getItem("token");
-  
+
   useEffect(() => {
     // loadTasksFromLocalStorage();
     loadTasksFromMongoDB()
